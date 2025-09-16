@@ -15,5 +15,6 @@ Vitest with React Testing Library is the canonical stack. Cover user-facing beha
 ## Commit & Pull Request Guidelines
 Follow the Conventional Commit style (`feat: add login card`, `chore: bump deps`). Keep messages imperative and scoped to a single logical change. Every PR should summarize behavior changes, link related issues, paste `lint`/`test` results, and include screenshots or GIFs for UI tweaks. Confirm `npm run build` succeeds prior to requesting review.
 
-## Agent & Tooling Notes
-When TypeScript or `@typescript-eslint` upgrades are proposed, run the MCP server at `node mcp/ts-eslint-compat-server.mjs` to confirm compatibility. Capture the server’s recommendation in the PR description and rerun `npm run lint` afterward to ensure the warning surface stays clean.
+## Security & Configuration Tips
+- Run `node mcp/ts-eslint-compat-server.mjs` before bumping TypeScript or `@typescript-eslint` so linting stays compatible.
+- Vite 5 currently depends on `esbuild@0.21.x`, which exposes the dev server to GHSA-67mh-4wv8-2f99. Keep the server on trusted networks and avoid browsing untrusted sites while it runs until the project migrates to Vite 7.
